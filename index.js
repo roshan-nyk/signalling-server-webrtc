@@ -20,14 +20,6 @@ const Socket = require("websocket").server;
 
 var port = process.env.PORT || 3000;
 
-app.use(express.static(path.join(__dirname, "./public")));
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "index.html"));
-});
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
-});
-
 // const server = http.createServer(() => {});
 
 const server = http.createServer(app);
@@ -173,9 +165,17 @@ webSocket.on("request", (req) => {
   });
 });
 
-// server.listen(port, () => {
-//   console.log(`Listening on port ${port}`);
-// });
+app.use(express.static(path.join(__dirname, "./public")));
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "index.html"));
+});
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`);
+});
+
+server.listen(port, () => {
+  console.log(`Listening on port ${port}`);
+});
 
 // module.exports = server;
 
