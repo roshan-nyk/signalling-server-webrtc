@@ -178,11 +178,11 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "index.html"));
 });
 
-server.listen(port, () => {
-  console.log(`Listening on port ${port}`);
-});
+// server.listen(port, () => {
+//   console.log(`Listening on port ${port}`);
+// });
 
-// module.exports = server;
+module.exports = server;
 
 //handle exceptions and exit gracefully
 // process.on("unhandledRejection", (reason, promise) => {
