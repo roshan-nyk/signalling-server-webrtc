@@ -26,16 +26,12 @@ const server = http.createServer(() => {});
 //   console.log(`Listening on port ${port}`);
 // });
 
-server.listen(port, () => {
-  console.log(`Listening on port ${port}`);
-});
-
-app.get("/", (req, res) => {
-  console.log(`Inside get route`);
-});
+// server.listen(port, () => {
+//   console.log(`Listening on port ${port}`);
+// });
 
 const webSocket = new Socket({
-  httpServer: server,
+  httpsServer: server,
   // autoAcceptConnections: true,
 });
 
@@ -170,6 +166,14 @@ const findUser = (username) => {
     if (users[i].name === username) return users[i];
   }
 };
+
+server.listen(port, () => {
+  console.log(`Listening on port ${port}`);
+});
+
+// app.get("/", (req, res) => {
+//   console.log(`Inside get route`);
+// });
 
 //handle exceptions and exit gracefully
 // process.on("unhandledRejection", (reason, promise) => {
