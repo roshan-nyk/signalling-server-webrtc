@@ -26,8 +26,6 @@ const server = http
     console.log(`Listening on port ${port}`);
   });
 
-module.exports = server;
-
 // const server = http.createServer(app);
 
 // server.listen(port, "192.168.187.136", () => {
@@ -182,6 +180,8 @@ app.get("/", (req, res) => {
 // server.listen(port, () => {
 //   console.log(`Listening on port ${port}`);
 // });
+
+module.exports = server;
 
 //handle exceptions and exit gracefully
 // process.on("unhandledRejection", (reason, promise) => {
