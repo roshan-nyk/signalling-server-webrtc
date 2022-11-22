@@ -24,11 +24,6 @@ var port = process.env.PORT || 3000;
 //   console.log(`Inside get route`);
 // });
 
-app.use(express.static(path.join(__dirname, "./public")));
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "index.html"));
-});
-
 // app.listen(port, () => {
 //   console.log(`Example app listening on port ${port}`);
 // });
@@ -176,6 +171,11 @@ webSocket.on("request", (req) => {
   connection.on("error", () => {
     console.log("Error in WebSocket");
   });
+});
+
+app.use(express.static(path.join(__dirname, "./public")));
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "index.html"));
 });
 
 server.listen(port, () => {
