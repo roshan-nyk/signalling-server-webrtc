@@ -1,3 +1,6 @@
+const express = require("express");
+const app = express();
+
 const http = require("https");
 const Socket = require("websocket").server;
 
@@ -25,6 +28,10 @@ const server = http.createServer(() => {});
 
 server.listen(port, () => {
   console.log(`Listening on port ${port}`);
+});
+
+app.get("/", (req, res) => {
+  console.log(`Inside get route`);
 });
 
 const webSocket = new Socket({
