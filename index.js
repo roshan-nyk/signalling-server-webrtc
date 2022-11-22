@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 
-const http = require("https");
+const http = require("http");
 const Socket = require("websocket").server;
 
 // Requiring file system to use local files
@@ -31,7 +31,7 @@ const server = http.createServer(() => {});
 // });
 
 const webSocket = new Socket({
-  httpsServer: server,
+  httpServer: server,
   // autoAcceptConnections: true,
 });
 
@@ -167,13 +167,15 @@ const findUser = (username) => {
   }
 };
 
-server.listen(port, () => {
-  console.log(`Listening on port ${port}`);
+// server.listen(port, () => {
+//   console.log(`Listening on port ${port}`);
+// });
+
+app.get("/", (req, res) => {
+  console.log(`Inside get route`);
 });
 
-// app.get("/", (req, res) => {
-//   console.log(`Inside get route`);
-// });
+module.exports = server;
 
 //handle exceptions and exit gracefully
 // process.on("unhandledRejection", (reason, promise) => {
