@@ -1,4 +1,4 @@
-const http = require("http");
+const http = require("https");
 const Socket = require("websocket").server;
 
 // Requiring file system to use local files
@@ -17,7 +17,6 @@ const Socket = require("websocket").server;
 
 var port = process.env.PORT || 3000;
 
-
 const server = http.createServer(() => {});
 
 // server.listen(port, "192.168.187.136", () => {
@@ -25,7 +24,7 @@ const server = http.createServer(() => {});
 // });
 
 server.listen(port, () => {
- console.log(`Listening on port ${port}`);
+  console.log(`Listening on port ${port}`);
 });
 
 const webSocket = new Socket({
