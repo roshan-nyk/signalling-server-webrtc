@@ -20,9 +20,15 @@ const Socket = require("websocket").server;
 
 var port = process.env.PORT || 3000;
 
-// const server = http.createServer(() => {});
+const server = http
+  .createServer(() => {})
+  .listen(port, () => {
+    console.log(`Listening on port ${port}`);
+  });
 
-const server = http.createServer(app);
+module.exports = server;
+
+// const server = http.createServer(app);
 
 // server.listen(port, "192.168.187.136", () => {
 //   console.log(`Listening on port ${port}`);
@@ -165,19 +171,17 @@ webSocket.on("request", (req) => {
   });
 });
 
-app.use(express.static(path.join(__dirname, "./public")));
-app.get("/", (req, res) => {
-  // res.sendFile(path.join(__dirname, "index.html"));
-});
+// app.use(express.static(path.join(__dirname, "./public")));
+// app.get("/", (req, res) => {
+//   // res.sendFile(path.join(__dirname, "index.html"));
+// });
 // app.listen(port, () => {
 //   console.log(`Example app listening on port ${port}`);
 // });
 
-server.listen(port, () => {
-  console.log(`Listening on port ${port}`);
-});
-
-// module.exports = server;
+// server.listen(port, () => {
+//   console.log(`Listening on port ${port}`);
+// });
 
 //handle exceptions and exit gracefully
 // process.on("unhandledRejection", (reason, promise) => {
