@@ -29,7 +29,7 @@ const server = http.createServer(app);
 // });
 
 const webSocket = new Socket({
-  httpServer: app,
+  httpServer: server,
   // autoAcceptConnections: true,
 });
 
@@ -169,9 +169,9 @@ app.use(express.static(path.join(__dirname, "./public")));
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "index.html"));
 });
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
-});
+// app.listen(port, () => {
+//   console.log(`Example app listening on port ${port}`);
+// });
 
 server.listen(port, () => {
   console.log(`Listening on port ${port}`);
