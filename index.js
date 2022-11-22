@@ -20,13 +20,19 @@ const Socket = require("websocket").server;
 
 var port = process.env.PORT || 3000;
 
-const server = http.createServer(() => {});
+app.get("/", (req, res) => {
+  console.log(`Inside get route`);
+});
 
-// server.listen(port, "192.168.187.136", () => {
-//   console.log(`Listening on port ${port}`);
+// app.listen(port, () => {
+//   console.log(`Example app listening on port ${port}`);
 // });
 
-// server.listen(port, () => {
+// const server = http.createServer(() => {});
+
+const server = http.createServer(app);
+
+// server.listen(port, "192.168.187.136", () => {
 //   console.log(`Listening on port ${port}`);
 // });
 
@@ -36,6 +42,12 @@ const webSocket = new Socket({
 });
 
 const users = [];
+
+const findUser = (username) => {
+  for (let i = 0; i < users.length; i++) {
+    if (users[i].name === username) return users[i];
+  }
+};
 
 webSocket.on("request", (req) => {
   console.log("Listening");
@@ -161,22 +173,8 @@ webSocket.on("request", (req) => {
   });
 });
 
-const findUser = (username) => {
-  for (let i = 0; i < users.length; i++) {
-    if (users[i].name === username) return users[i];
-  }
-};
-
-// server.listen(port, () => {
-//   console.log(`Listening on port ${port}`);
-// });
-
-app.get("/", (req, res) => {
-  console.log(`Inside get route`);
-});
-
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+server.listen(port, () => {
+  console.log(`Listening on port ${port}`);
 });
 
 // module.exports = server;
