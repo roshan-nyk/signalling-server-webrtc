@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-
+const path = require("path");
 const http = require("http");
 const Socket = require("websocket").server;
 
@@ -20,8 +20,13 @@ const Socket = require("websocket").server;
 
 var port = process.env.PORT || 3000;
 
+// app.get("/", (req, res) => {
+//   console.log(`Inside get route`);
+// });
+
+app.use(express.static(path.join(__dirname, "./public")));
 app.get("/", (req, res) => {
-  console.log(`Inside get route`);
+  res.sendFile(path.join(__dirname, "index.html"));
 });
 
 // app.listen(port, () => {
@@ -177,7 +182,7 @@ server.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
 
-module.exports = server;
+// module.exports = server;
 
 //handle exceptions and exit gracefully
 // process.on("unhandledRejection", (reason, promise) => {
