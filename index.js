@@ -175,7 +175,11 @@ app.get("/", (req, res) => {
   console.log(`Inside get route`);
 });
 
-module.exports = server;
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`);
+});
+
+// module.exports = server;
 
 //handle exceptions and exit gracefully
 // process.on("unhandledRejection", (reason, promise) => {
