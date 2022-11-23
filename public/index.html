@@ -15,7 +15,7 @@
         const output = document.getElementById("output");
         output.innerHTML = "Wait for connection...";
         // const ws = new WebSocket("ws://localhost:3000");
-        // const ws = new WebSocket("wss://signalling-server-webrtc.vercel.app:1337");
+        const ws = new WebSocket("wss://signalling-server-webrtc.vercel.app:1337");
         // ws.onopen = () => {
         //         output.innerHTML = "Connected to the server";
         //         window.onclick = (event) => {
