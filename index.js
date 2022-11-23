@@ -19,7 +19,7 @@ const Socket = require("websocket").server;
 // });
 
 // var port = process.env.PORT || 3000;
-var port = 1337;
+var port = process.env.PORT || 3000;
 
 // const server = http
 //   .createServer(() => {})
@@ -29,7 +29,7 @@ var port = 1337;
 
 const server = http.createServer(app);
 
-server.listen(1337, function () {
+server.listen(port, function () {
   console.log(`Listening on port ${port}`);
 });
 
@@ -176,6 +176,8 @@ webSocket.on("request", (req) => {
   });
 });
 
+console.log(`Listening on port ${port}`);
+
 app.use(express.static(path.join(__dirname, "./public")));
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "index.html"));
@@ -188,7 +190,7 @@ app.get("/", (req, res) => {
 //   console.log(`Listening on port ${port}`);
 // });
 
-module.exports = server;
+// module.exports = server;
 
 //handle exceptions and exit gracefully
 // process.on("unhandledRejection", (reason, promise) => {
