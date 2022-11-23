@@ -21,17 +21,17 @@ const Socket = require("websocket").server;
 // var port = process.env.PORT || 3000;
 var port = process.env.PORT || 3000;
 
-const server = http
-  .createServer(() => {})
-  .listen(port, () => {
-    console.log(`Listening on port ${port}`);
-  });
+// const server = http
+//   .createServer(() => {})
+//   .listen(port, () => {
+//     console.log(`Listening on port ${port}`);
+//   });
 
-// const server = http.createServer(app);
+const server = http.createServer(app);
 
-// server.listen(port, function () {
-//   console.log(`Listening on port ${port}`);
-// });
+server.listen(port, function () {
+  console.log(`Listening on port ${port}`);
+});
 
 // const server = http.createServer(app);
 
