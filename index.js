@@ -178,7 +178,7 @@ webSocket.on("request", (req) => {
 
 console.log(`Listening on port ${port}`);
 
-app.use(express.static(path.join(__dirname, "./public")));
+// app.use(express.static(path.join(__dirname, "./public")));
 app.get("/", (req, res) => {
   console.log(`Listening on port ${port}`);
   // res.sendFile(path.join(__dirname, "index.html"));
