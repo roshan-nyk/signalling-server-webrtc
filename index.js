@@ -19,7 +19,7 @@ const Socket = require("websocket").server;
 // });
 
 // var port = process.env.PORT || 3000;
-var port = process.env.PORT || 3000;
+var port = process.env.port || 3000;
 
 // const server = http
 //   .createServer(() => {})
@@ -175,8 +175,6 @@ webSocket.on("request", (req) => {
     console.log("Error in WebSocket");
   });
 });
-
-console.log(`Listening on port ${port}`);
 
 // app.use(express.static(path.join(__dirname, "./public")));
 app.get("/", (req, res) => {
