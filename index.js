@@ -18,13 +18,20 @@ const Socket = require("websocket").server;
 //   console.log("Listening on port 3000");
 // });
 
-var port = process.env.PORT || 3000;
+// var port = process.env.PORT || 3000;
+var port = 1337;
 
-const server = http
-  .createServer(() => {})
-  .listen(port, () => {
-    console.log(`Listening on port ${port}`);
-  });
+// const server = http
+//   .createServer(() => {})
+//   .listen(port, () => {
+//     console.log(`Listening on port ${port}`);
+//   });
+
+const server = http.createServer(app);
+
+server.listen(1337, function () {
+  console.log(`Listening on port ${port}`);
+});
 
 // const server = http.createServer(app);
 

@@ -15,22 +15,22 @@
         const output = document.getElementById("output");
         output.innerHTML = "Wait for connection...";
         // const ws = new WebSocket("ws://localhost:3000");
-        const ws = new WebSocket("wss://signalling-server-webrtc.vercel.app");
-        ws.onopen = () => {
-                output.innerHTML = "Connected to the server";
-                window.onclick = (event) => {
-                    const x = event.clientX;
-                    const y = event.clientY;
-                    console.log(x + ", " + y)
-                    ws.send(JSON.stringify({x: x, y: y}));
-                };
+        // const ws = new WebSocket("wss://signalling-server-webrtc.vercel.app:1337");
+        // ws.onopen = () => {
+        //         output.innerHTML = "Connected to the server";
+        //         window.onclick = (event) => {
+        //             const x = event.clientX;
+        //             const y = event.clientY;
+        //             console.log(x + ", " + y)
+        //             ws.send(JSON.stringify({x: x, y: y}));
+        //         };
 
-                ws.onmessage = (event) => {
-                    console.log(event.data);
-                    const msg = JSON.parse(event.data);
-                    output.innerHTML = `Answer from server: x = ${msg.x}, y = ${msg.y}`;
-                }
-            };
+        //         ws.onmessage = (event) => {
+        //             console.log(event.data);
+        //             const msg = JSON.parse(event.data);
+        //             output.innerHTML = `Answer from server: x = ${msg.x}, y = ${msg.y}`;
+        //         }
+        //     };
     </script>
 </body>
 
