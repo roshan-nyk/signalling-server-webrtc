@@ -181,8 +181,9 @@ console.log(`Listening on port ${port}`);
 app.use(express.static(path.join(__dirname, "./public")));
 app.get("/", (req, res) => {
   console.log(`Listening on port ${port}`);
-  res.sendFile(path.join(__dirname, "index.html"));
-  res.send(`new Buffer('wahoo'${port}`);
+  // res.sendFile(path.join(__dirname, "index.html"));
+  // res.send(`new Buffer('wahoo'${port}`);
+  res.status(404).send("Sorry, cant find that");
 });
 // app.listen(port, () => {
 //   console.log(`Example app listening on port ${port}`);
